@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Github | 月光寶盒]]></title>
+  <link href="http://shaching.github.io/blog/categories/github/atom.xml" rel="self"/>
+  <link href="http://shaching.github.io/"/>
+  <updated>2014-06-26T11:52:28+08:00</updated>
+  <id>http://shaching.github.io/</id>
+  <author>
+    <name><![CDATA[shaching]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to Install Octopress Blog With Github?]]></title>
+    <link href="http://shaching.github.io/blog/2014/06/25/how-to-install-octopress-blog-with-github/"/>
+    <updated>2014-06-25T16:17:17+08:00</updated>
+    <id>http://shaching.github.io/blog/2014/06/25/how-to-install-octopress-blog-with-github</id>
+    <content type="html"><![CDATA[<p>之前陸陸續續用過倒掉的無名、Pixnet 和 Blogger，</p>
+
+<p>這些 Blog 的編輯排版非常麻煩，尤其是要貼 Code 的時候&hellip;WTF</p>
+
+<p>所以後來有一大段時間沒在寫，但隨著年紀增長開始健忘XD</p>
+
+<p>因此決定找一個好用的 Blog 來防呆&hellip;</p>
+
+<p>找了許久終於找到好吃的 Octopress，</p>
+
+<p>Markdown 語法解決了我最討厭的排版問題，</p>
+
+<p>還可以用 Vim + Git 來編輯和發布文章，</p>
+
+<p>整個就是超級符合我這個懶人的 Style。</p>
+
+<p>不過網路上的安裝教學文章大多是 2012 年左右的，</p>
+
+<p>而我在安裝過程中也遇到些問題折騰了不少時間，</p>
+
+<p>為了不再重蹈覆轍，所以通通記錄下來。</p>
+
+<!--more -->
+
+
+<p><strong>Step0. 環境需求</strong></p>
+
+<p>我用的作業系統是 Lubuntu 14.04 64bit，Windows 的我就幫不上忙啦。</p>
+
+<p><strong>Step1. 建立自己的Github帳號</strong></p>
+
+<p>沒有帳號的人要先到 <a href="https://github.com/">https://github.com/</a> 註冊，</p>
+
+<p>接下來要 new 一個 repository 用來存放你的 Blog 資料，</p>
+
+<p>Repository name 要填入 username.github.io</p>
+
+<p>而 username 就是你剛剛申請的 Github 帳號名稱，</p>
+
+<p>接著直接點網頁最下面的 Create Repository 按鈕。</p>
+
+<p><strong>Step2. 安裝Octopress</strong></p>
+
+<p>官方說明網頁：<a href="http://octopress.org/docs/setup/">Octopress Setup</a></p>
+
+<p>安裝 Git
+<code>
+$ sudo add-apt-repository ppa:git-core/ppa
+$ sudo apt-get update
+$ sudo apt-get install git
+$ git config --global user.name "yourname"            # Enter your name
+$ git config --global user.email "yourname@email.com" # Enter your Email
+</code></p>
+
+<p>安裝 Node.js (問題1)
+<code>
+$ sudo apt-get install nodejs
+</code></p>
+
+<p>安裝 Curl
+<code>
+$ sudo apt-get install curl
+</code></p>
+
+<p>安裝 rvm
+<code>
+$ curl -L https://get.rvm.io | bash -s stable --ruby
+</code></p>
+
+<p>安裝 Ruby 1.9.3
+<code>
+$ rvm install 1.9.3
+$ rvm use 1.9.3
+$ rvm rubygems latest
+$ ruby --version      # It should be Ruby 1.9.3
+</code></p>
+
+<p>安裝 Octopress
+<code>
+$ git clone git://github.com/imathis/octopress.git octopress
+$ cd octopress
+$ gem install bundler
+$ bundle install
+$ rake install
+</code></p>
+
+<p><strong>Step3. 設定Octopress</strong></p>
+
+<p>官方說明網頁：<a href="http://octopress.org/docs/deploying/">Deploying</a></p>
+
+<p>執行下列指令來設定 Github 的位置
+<code>
+$ rake setup_github_pages
+</code></p>
+
+<p>接著輸入 git@github.com:username/username.github.io.git</p>
+
+<p>username 一樣是剛剛申請的 Github 帳號名稱。</p>
+
+<p>然後用 vim 編輯 _config.yml 設定網頁資訊，</p>
+
+<p>下列是我修改的部份，其它的細節可以到官網看 <a href="http://octopress.org/docs/configuring/">Configuring Octopress</a>。
+<code>
+title: 月光寶盒
+subtitle: Less is More
+author: shaching
+...
+google_plus_one: true
+google_plus_one_size: medium
+facebook_like: ture
+</code></p>
+
+<p>接著執行產生網頁和發布網頁
+<code>
+$ rake generate
+$ rake deploy
+$ git add .
+$ git commit -m 'init'
+$ git push origin source
+</code></p>
+
+<p>接著打開瀏覽器輸入網址 <a href="http://username.github.io">http://username.github.io</a></p>
+
+<p>等約10分鐘就可以看到 Octopress 的網頁 (問題2)。</p>
+
+<p><strong>Step4. 發布新文章</strong></p>
+
+<p>官方說明網頁：<a href="http://octopress.org/docs/blogging/">Blogging Basics</a></p>
+
+<p>執行以下指令產生新文章
+<code>
+$ rake new_post["How to Install Octopress Blog with Github?"]
+</code></p>
+
+<p>Octopress 會產生文章檔案在 source/_posts/ 底下，用 vim 編輯完成後存檔。
+<code>
+$ vim source/_posts/2014-06-25-how-to-install-octopress-blog-with-github.markdown
+</code></p>
+
+<p>(因為 Octopress 使用 Markdown 語法，可以到 <a href="http://markdown.tw/">Markdown文件</a> 學習。)</p>
+
+<p>(不惜慣用 vim 編輯的人，推薦 real-time preview 的 ReText 編輯器，安裝方式如下。)
+<code>
+$ sudo apt-get install retext
+</code></p>
+
+<p>編輯完成後要先執行以下指令
+<code>
+$ rake generate  # Generates posts and pages into the public directory
+$ rake watch     # Watches source/ and sass/ for changes and regenerates
+$ rake preview   # Watches, and mounts a webserver at http://localhost:4000
+</code></p>
+
+<p>打開瀏覽器輸入 <a href="http://localhost:4000">http://localhost:4000</a> 便可預覽文章，</p>
+
+<p>確定沒問題後要再做一次發布網頁動作。
+<code>
+$ git add .
+$ git commit -m 'How to Install Octopress Blog with Github?'
+$ git push origin source
+$ rake deploy
+</code></p>
+
+<p>最後就是你現在看到的這篇文章啦～^^</p>
+
+<p><strong>問題1.</strong></p>
+
+<p>執行 $rake generate 時候會遇到 Could not find a JavaScript runtime，請安裝 nodejs 套件。
+```
+$ rake generate</p>
+
+<h2>Generating Site with Jekyll</h2>
+
+<p>identical source/stylesheets/screen.css
+/home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/execjs-2.2.0/lib/execjs/runtimes.rb:51:in `autodetect': Could not find a JavaScript runtime. See <a href="https://github.com/sstephenson/execjs">https://github.com/sstephenson/execjs</a> for a list of available runtimes. (ExecJS::RuntimeUnavailable)</p>
+
+<pre><code>from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/execjs-2.2.0/lib/execjs.rb:5:in `&lt;module:ExecJS&gt;'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/execjs-2.2.0/lib/execjs.rb:4:in `&lt;top (required)&gt;'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/coffee-script-2.2.0/lib/coffee_script.rb:1:in `require'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/coffee-script-2.2.0/lib/coffee_script.rb:1:in `&lt;top (required)&gt;'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/coffee-script-2.2.0/lib/coffee-script.rb:1:in `require'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/coffee-script-2.2.0/lib/coffee-script.rb:1:in `&lt;top (required)&gt;'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/jekyll-coffeescript-1.0.0/lib/jekyll-coffeescript.rb:2:in `require'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/jekyll-coffeescript-1.0.0/lib/jekyll-coffeescript.rb:2:in `&lt;top (required)&gt;'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/jekyll-2.0.3/lib/jekyll.rb:73:in `require'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/jekyll-2.0.3/lib/jekyll.rb:73:in `&lt;top (required)&gt;'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/jekyll-2.0.3/bin/jekyll:6:in `require'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/gems/jekyll-2.0.3/bin/jekyll:6:in `&lt;top (required)&gt;'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/bin/jekyll:23:in `load'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/bin/jekyll:23:in `&lt;main&gt;'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/bin/ruby_executable_hooks:15:in `eval'
+from /home/johnny/.rvm/gems/ruby-1.9.3-p547/bin/ruby_executable_hooks:15:in `&lt;main&gt;'
+</code></pre>
+
+<p>```</p>
+
+<p><strong>問題2.</strong></p>
+
+<p>網頁發布後大約需要十分鐘後才能在 <a href="http://username.github.io">http://username.github.io</a> 看到網頁，</p>
+
+<p>我原本以為立刻可以看到文章&hellip;結果一直看到 404 page not found&hellip;囧，</p>
+
+<p>害我一直以為有哪一個步驟錯了@@&hellip;嗯&hellip;多等個十分鐘吧！</p>
+]]></content>
+  </entry>
+  
+</feed>

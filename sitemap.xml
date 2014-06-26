@@ -2,17 +2,23 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   
+  <url>
+    <loc>http://shaching.github.io/blog/2014/06/25/how-to-install-octopress-blog-with-github/</loc>
+    <lastmod>2014-06-25T16:17:17+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
   
   <url>
     <loc>http://shaching.github.io/</loc>
-    <lastmod>2014-06-25T14:57:03+08:00</lastmod>
+    <lastmod>2014-06-26T11:52:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://shaching.github.io/blog/archives/</loc>
-    <lastmod>2014-06-25T14:57:03+08:00</lastmod>
+    <lastmod>2014-06-26T11:52:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
