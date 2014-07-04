@@ -9,7 +9,10 @@
   <meta name="author" content="shaching">
 
   
-  <meta name="description" content="之前陸陸續續用過倒掉的無名、Pixnet 和 Blogger， 這些 Blog 的編輯排版非常麻煩，尤其是要貼 Code 的時候&hellip;WTF 所以後來有一大段時間沒在寫，但隨著年紀增長開始健忘XD 因此決定找一個好用的 Blog 來防呆&hellip; 找了許久終於找到好吃的 &hellip;">
+  <meta name="description" content="The default VIM comment color(dark blue) is diffacult to read. So you can add .vimrc file in /YOUR_HOME_PATH/ 1
+2
+$ cd
+$ vim .vimrc Add below &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +86,62 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/07/04/how-to-change-vim-default-comment-color/">How to Change VIM Default Comment Color?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-04T14:05:55+08:00" pubdate data-updated="true">Jul 4<sup>th</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The default VIM comment color(dark blue) is diffacult to read.</p>
+
+<p>So you can add .vimrc file in /YOUR_HOME_PATH/</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd
+</span><span class='line'>$ vim .vimrc</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add below contents then save and exit.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>syntax on
+</span><span class='line'>set t_Co=256
+</span><span class='line'>hi Comment ctermfg=blue</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Enjoy it.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/06/25/how-to-install-octopress-blog-with-github/">How to Install Octopress Blog With Github?</a></h1>
     
     
@@ -150,6 +209,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/04/how-to-change-vim-default-comment-color/">How to Change VIM Default Comment Color?</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/06/25/how-to-install-octopress-blog-with-github/">How to Install Octopress Blog With Github?</a>

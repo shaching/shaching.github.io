@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://shaching.github.io/blog/2014/07/04/how-to-change-vim-default-comment-color/</loc>
+    <lastmod>2014-07-04T14:05:55+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://shaching.github.io/blog/2014/06/25/how-to-install-octopress-blog-with-github/</loc>
     <lastmod>2014-06-25T16:17:17+08:00</lastmod>
     <priority>0.8</priority>
@@ -11,14 +17,14 @@
   
   <url>
     <loc>http://shaching.github.io/</loc>
-    <lastmod>2014-06-26T11:52:28+08:00</lastmod>
+    <lastmod>2014-07-04T14:35:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://shaching.github.io/blog/archives/</loc>
-    <lastmod>2014-06-26T11:52:28+08:00</lastmod>
+    <lastmod>2014-07-04T14:35:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

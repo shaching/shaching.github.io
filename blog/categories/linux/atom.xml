@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Linux | 月光寶盒]]></title>
+  <link href="http://shaching.github.io/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://shaching.github.io/"/>
+  <updated>2014-07-04T14:35:36+08:00</updated>
+  <id>http://shaching.github.io/</id>
+  <author>
+    <name><![CDATA[shaching]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to Change VIM Default Comment Color?]]></title>
+    <link href="http://shaching.github.io/blog/2014/07/04/how-to-change-vim-default-comment-color/"/>
+    <updated>2014-07-04T14:05:55+08:00</updated>
+    <id>http://shaching.github.io/blog/2014/07/04/how-to-change-vim-default-comment-color</id>
+    <content type="html"><![CDATA[<p>The default VIM comment color(dark blue) is diffacult to read.</p>
+
+<p>So you can add .vimrc file in /YOUR_HOME_PATH/
+<code>
+$ cd
+$ vim .vimrc
+</code></p>
+
+<p>Add below contents then save and exit.
+<code>
+syntax on
+set t_Co=256
+hi Comment ctermfg=blue
+</code></p>
+
+<p>Enjoy it.</p>
+]]></content>
+  </entry>
+  
+</feed>
