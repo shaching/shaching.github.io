@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Moon Light Box</title>
+  <title>Vim - How to Highlight Trailing Whitespace? - Moon Light Box</title>
   <meta name="author" content="shaching">
 
   
-  <meta name="description" content="Moon Light Box Blog (http://shaching.github.io)" />
+  <meta name="description" content="Vim - How to Highlight Trailing Whitespace?" />
   
-  <meta name="keywords" content="SEO, Blog, Geek, Taiwan, Android, Linux, Ubuntu, Google, Apple, iOS, C, Java, PHP, Ruby, Python, Kernel, Driver, China, Git, Startup, Octopress, Wordpress, SQL, Samsung" />
+  <meta name="keywords" content="Vim, Linux, Ubuntu, Editer" />
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://shaching.github.io">
+  <link rel="canonical" href="http://shaching.github.io/2014/07/08/vim-how-to-highlight-trailing-whitespace">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Moon Light Box" type="application/atom+xml">
@@ -76,15 +76,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/2014/07/08/vim-how-to-highlight-trailing-whitespace/">Vim - How to Highlight Trailing Whitespace?</a></h1>
+      <h1 class="entry-title">Vim - How to Highlight Trailing Whitespace?</h1>
     
     
       <p class="meta">
@@ -107,48 +104,10 @@
   </header>
 
 
-  <div class="entry-content"><p>During Vim editing, We must have to delete unnecessary trailing whitespace which make code easy to read or merge.</p>
+<div class="entry-content"><p>During Vim editing, We must have to delete unnecessary trailing whitespace which make code easy to read or merge.</p>
 
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2014/07/08/vim-how-to-highlight-trailing-whitespace/">Read on &rarr;</a>
-    </footer>
-  
+<!--more -->
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2014/07/04/how-to-change-vim-default-comment-color/">How to Change VIM Default Comment Color?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-04T14:05:55+08:00" pubdate data-updated="true">Jul 4<sup>th</sup>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The default VIM comment color(dark blue) is diffacult to read.</p>
 
 <p>So you can add .vimrc file in /YOUR_HOME_PATH/</p>
 
@@ -163,29 +122,25 @@
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>syntax on
-</span><span class='line'>set t_Co=256
-</span><span class='line'>hi Comment ctermfg=blue</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>hi Whitespace ctermbg=darkred guibg=darkcyan
+</span><span class='line'>autocmd BufEnter * if &ft != 'help' | match Whitespace /\s\+$/ | endif
+</span><span class='line'>autocmd BufEnter * if &ft == 'help' | match none /\s\+$/ | endif</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Enjoy it.</p>
+
+<p>Reference : <a href="http://kitoslab.blogspot.tw/2012/09/vim-trailing-whitespace.html">vim 顯示多餘空白( trailing whitespace ) </a></p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/2014/06/25/how-to-install-octopress-blog-with-github/">How to Install Octopress Blog With Github?</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">shaching</span></span>
+
+      
 
 
 
@@ -197,52 +152,48 @@
   
 
 
-<time datetime="2014-06-25T16:17:17+08:00" pubdate data-updated="true">Jun 25<sup>th</sup>, 2014</time>
-        
-      </p>
+<time datetime="2014-07-08T14:12:45+08:00" pubdate data-updated="true">Jul 8<sup>th</sup>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/linux/'>linux</a>, <a class='category' href='/categories/ubuntu/'>ubuntu</a>, <a class='category' href='/categories/vim/'>vim</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shaching.github.io/2014/07/08/vim-how-to-highlight-trailing-whitespace/" data-via="chushaching" data-counturl="http://shaching.github.io/2014/07/08/vim-how-to-highlight-trailing-whitespace/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2014/07/04/how-to-change-vim-default-comment-color/" title="Previous Post: How to Change VIM default Comment Color?">&laquo; How to Change VIM default Comment Color?</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-  <div class="entry-content"><p>之前陸陸續續用過倒掉的無名、Pixnet 和 Blogger，</p>
-
-<p>這些 Blog 的編輯排版非常麻煩，尤其是要貼 Code 的時候&hellip;WTF</p>
-
-<p>所以後來有一大段時間沒在寫，但隨著年紀增長開始健忘XD</p>
-
-<p>因此決定找一個好用的 Blog 來防呆&hellip;</p>
-
-<p>找了許久終於找到好吃的 Octopress，</p>
-
-<p>Markdown 語法解決了我最討厭的排版問題，</p>
-
-<p>還可以用 Vim + Git 來編輯和發布文章，</p>
-
-<p>整個就是超級符合我這個懶人的 Style。</p>
-
-<p>不過網路上的安裝教學文章大多是 2012 年左右的，</p>
-
-<p>而我在安裝過程中也遇到些問題折騰了不少時間，</p>
-
-<p>為了不再重蹈覆轍，所以通通記錄下來。</p>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2014/06/25/how-to-install-octopress-blog-with-github/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -271,6 +222,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -285,7 +237,10 @@
       var disqus_shortname = 'shaching';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://shaching.github.io/2014/07/08/vim-how-to-highlight-trailing-whitespace/';
+        var disqus_url = 'http://shaching.github.io/2014/07/08/vim-how-to-highlight-trailing-whitespace/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

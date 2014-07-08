@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | Moon Light Box]]></title>
   <link href="http://shaching.github.io/categories/linux/atom.xml" rel="self"/>
   <link href="http://shaching.github.io/"/>
-  <updated>2014-07-04T17:02:20+08:00</updated>
+  <updated>2014-07-08T14:37:00+08:00</updated>
   <id>http://shaching.github.io/</id>
   <author>
     <name><![CDATA[shaching]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vim - How to Highlight Trailing Whitespace?]]></title>
+    <link href="http://shaching.github.io/2014/07/08/vim-how-to-highlight-trailing-whitespace/"/>
+    <updated>2014-07-08T14:12:45+08:00</updated>
+    <id>http://shaching.github.io/2014/07/08/vim-how-to-highlight-trailing-whitespace</id>
+    <content type="html"><![CDATA[<p>During Vim editing, We must have to delete unnecessary trailing whitespace which make code easy to read or merge.</p>
+
+<!--more -->
+
+
+<p>So you can add .vimrc file in /YOUR_HOME_PATH/
+<code>
+$ cd
+$ vim .vimrc
+</code></p>
+
+<p>Add below contents then save and exit.
+<code>
+hi Whitespace ctermbg=darkred guibg=darkcyan
+autocmd BufEnter * if &amp;ft != 'help' | match Whitespace /\s\+$/ | endif
+autocmd BufEnter * if &amp;ft == 'help' | match none /\s\+$/ | endif
+</code></p>
+
+<p>Enjoy it.</p>
+
+<p>Reference : <a href="http://kitoslab.blogspot.tw/2012/09/vim-trailing-whitespace.html">vim 顯示多餘空白( trailing whitespace ) </a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Change VIM Default Comment Color?]]></title>
