@@ -1,14 +1,16 @@
 ---
 layout: post
-title: "How to Change VIM default Comment Color?"
+title: "Vim - How to Change Vim default Comment Color?"
 date: 2014-07-04 14:05:55 +0800
 comments: true
 categories: [Vim, Linux, Ubuntu]
 keywords: Vim, Linux, Ubuntu, Editer
-description: change vim color
+description: Vim - How to Change Vim default Comment Color?
 ---
 
 The default VIM comment color(dark blue) is diffacult to read.
+
+<!--more -->
 
 So you can add .vimrc file in /YOUR\_HOME\_PATH/
 ```
