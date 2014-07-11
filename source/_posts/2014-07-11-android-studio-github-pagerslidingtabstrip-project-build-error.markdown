@@ -50,4 +50,19 @@ Modified PagerSlidingTabStrip / library / build.gradle
 ---apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
 ```
 
+###Build Error 3.###
+```
+Error:The SDK Build Tools revision (19.0.0) is too low for project ':library'. Minimum required is 19.1.0
+```
+
+Modified PagerSlidingTabStrip / gradle.properties
+```
+---ANDROID_BUILD_TARGET_SDK_VERSION=19
+---ANDROID_BUILD_TOOLS_VERSION=19
+---ANDROID_BUILD_SDK_VERSION=19
++++ANDROID_BUILD_TARGET_SDK_VERSION=20
++++ANDROID_BUILD_TOOLS_VERSION=20
++++ANDROID_BUILD_SDK_VERSION=20
+```
+
 Reference : [Github PagerSlidingTabStrip Project](https://github.com/astuetz/PagerSlidingTabStrip)
