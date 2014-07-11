@@ -4,7 +4,7 @@
   <title><![CDATA[Moon Light Box]]></title>
   <link href="http://shaching.github.io/atom.xml" rel="self"/>
   <link href="http://shaching.github.io/"/>
-  <updated>2014-07-11T20:10:59+08:00</updated>
+  <updated>2014-07-11T20:23:09+08:00</updated>
   <id>http://shaching.github.io/</id>
   <author>
     <name><![CDATA[shaching]]></name>
@@ -72,6 +72,28 @@
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>---apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Build Error 3.</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Error:The SDK Build Tools revision (19.0.0) is too low for project ':library'. Minimum required is 19.1.0</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Modified PagerSlidingTabStrip / gradle.properties</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---ANDROID_BUILD_TARGET_SDK_VERSION=19
+</span><span class='line'>---ANDROID_BUILD_TOOLS_VERSION=19
+</span><span class='line'>---ANDROID_BUILD_SDK_VERSION=19
+</span><span class='line'>+++ANDROID_BUILD_TARGET_SDK_VERSION=20
+</span><span class='line'>+++ANDROID_BUILD_TOOLS_VERSION=20
+</span><span class='line'>+++ANDROID_BUILD_SDK_VERSION=20</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Reference : <a href="https://github.com/astuetz/PagerSlidingTabStrip">Github PagerSlidingTabStrip Project</a></p>
