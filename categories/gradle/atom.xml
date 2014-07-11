@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Gradle | Moon Light Box]]></title>
+  <link href="http://shaching.github.io/categories/gradle/atom.xml" rel="self"/>
+  <link href="http://shaching.github.io/"/>
+  <updated>2014-07-11T20:10:59+08:00</updated>
+  <id>http://shaching.github.io/</id>
+  <author>
+    <name><![CDATA[shaching]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Android Studio - Github PagerSlidingTabStrip Project Build Error]]></title>
+    <link href="http://shaching.github.io/2014/07/11/android-studio-github-pagerslidingtabstrip-project-build-error/"/>
+    <updated>2014-07-11T18:57:58+08:00</updated>
+    <id>http://shaching.github.io/2014/07/11/android-studio-github-pagerslidingtabstrip-project-build-error</id>
+    <content type="html"><![CDATA[<p>I imported Github PagerSlidingTabStrip project into Android Studio 0.8.2.</p>
+
+<p>Oops. And it wasted me a lot of time to fix build error.</p>
+
+<p>To avoid encountered the same problems.</p>
+
+<p>I noted solutions here and hoped this can help you. :)</p>
+
+<!--more -->
+
+
+<h3>Build Error 1.</h3>
+
+<p>```
+Error:Build script error, unsupported Gradle DSL method found: &lsquo;getBootClasspath()&rsquo;!</p>
+
+<p>Possible causes could be:
+  &ndash; you are using Gradle version where the method is absent Fix Gradle settings
+  &ndash; you didn&rsquo;t apply Gradle plugin which provides the method Apply Gradle plugin
+  &ndash; or there is a mistake in a build script Goto source
+<code>
+Modified PagerSlidingTabStrip / build.gradle.
+</code>
+&mdash;-classpath &lsquo;com.android.tools.build:gradle:0.6.+&rsquo;
++++classpath &lsquo;com.android.tools.build:gradle:0.12.+&rsquo;</p>
+
+<p>```</p>
+
+<p>Modified PagerSlidingTabStrip / gradle / wrapper / gradle-wrapper.properties
+<code>
+---distributionUrl=http\://services.gradle.org/distributions/gradle-1.8-all.zip
++++distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip
+</code></p>
+
+<h3>Build Error 2.</h3>
+
+<p><code>
+Error:Could not find property 'allJava' on source set main.
+</code></p>
+
+<p>Modified PagerSlidingTabStrip / library / build.gradle
+<code>
+---apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+</code></p>
+
+<p>Reference : <a href="https://github.com/astuetz/PagerSlidingTabStrip">Github PagerSlidingTabStrip Project</a></p>
+]]></content>
+  </entry>
+  
+</feed>

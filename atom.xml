@@ -4,7 +4,7 @@
   <title><![CDATA[Moon Light Box]]></title>
   <link href="http://shaching.github.io/atom.xml" rel="self"/>
   <link href="http://shaching.github.io/"/>
-  <updated>2014-07-08T14:42:56+08:00</updated>
+  <updated>2014-07-11T20:10:59+08:00</updated>
   <id>http://shaching.github.io/</id>
   <author>
     <name><![CDATA[shaching]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android Studio - Github PagerSlidingTabStrip Project Build Error]]></title>
+    <link href="http://shaching.github.io/2014/07/11/android-studio-github-pagerslidingtabstrip-project-build-error/"/>
+    <updated>2014-07-11T18:57:58+08:00</updated>
+    <id>http://shaching.github.io/2014/07/11/android-studio-github-pagerslidingtabstrip-project-build-error</id>
+    <content type="html"><![CDATA[<p>I imported Github PagerSlidingTabStrip project into Android Studio 0.8.2.</p>
+
+<p>Oops. And it wasted me a lot of time to fix build error.</p>
+
+<p>To avoid encountered the same problems.</p>
+
+<p>I noted solutions here and hoped this can help you. :)</p>
+
+<!--more -->
+
+
+<h3>Build Error 1.</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Error:Build script error, unsupported Gradle DSL method found: 'getBootClasspath()'!
+</span><span class='line'>
+</span><span class='line'>Possible causes could be:
+</span><span class='line'>  - you are using Gradle version where the method is absent Fix Gradle settings
+</span><span class='line'>  - you didn't apply Gradle plugin which provides the method Apply Gradle plugin
+</span><span class='line'>  - or there is a mistake in a build script Goto source</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Modified PagerSlidingTabStrip / build.gradle.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---classpath 'com.android.tools.build:gradle:0.6.+'
+</span><span class='line'>+++classpath 'com.android.tools.build:gradle:0.12.+'
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Modified PagerSlidingTabStrip / gradle / wrapper / gradle-wrapper.properties</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---distributionUrl=http\://services.gradle.org/distributions/gradle-1.8-all.zip
+</span><span class='line'>+++distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Build Error 2.</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Error:Could not find property 'allJava' on source set main.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Modified PagerSlidingTabStrip / library / build.gradle</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Reference : <a href="https://github.com/astuetz/PagerSlidingTabStrip">Github PagerSlidingTabStrip Project</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vim - How to Highlight Trailing Whitespace?]]></title>

@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Vim - How to Change Vim Default Comment Color? - Moon Light Box</title>
+  <title>Android Studio - Github PagerSlidingTabStrip Project Build Error - Moon Light Box</title>
   <meta name="author" content="shaching">
 
   
-  <meta name="description" content="Vim - How to Change Vim default Comment Color?" />
+  <meta name="description" content="Android Studio - Github PagerSlidingTabStrip Project Build Error" />
   
-  <meta name="keywords" content="Vim, Linux, Ubuntu, Editer" />
+  <meta name="keywords" content="Android, Studio, Gradle, Build, Error, PagerSlidingTabStrip" />
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://shaching.github.io/2014/07/04/how-to-change-vim-default-comment-color">
+  <link rel="canonical" href="http://shaching.github.io/2014/07/11/android-studio-github-pagerslidingtabstrip-project-build-error">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Moon Light Box" type="application/atom+xml">
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Vim - How to Change Vim Default Comment Color?</h1>
+      <h1 class="entry-title">Android Studio - Github PagerSlidingTabStrip Project Build Error</h1>
     
     
       <p class="meta">
@@ -97,37 +97,70 @@
   
 
 
-<time datetime="2014-07-04T14:05:55+08:00" pubdate data-updated="true">Jul 4<sup>th</sup>, 2014</time>
+<time datetime="2014-07-11T18:57:58+08:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>The default VIM comment color(dark blue) is diffacult to read.</p>
+<div class="entry-content"><p>I imported Github PagerSlidingTabStrip project into Android Studio 0.8.2.</p>
+
+<p>Oops. And it wasted me a lot of time to fix build error.</p>
+
+<p>To avoid encountered the same problems.</p>
+
+<p>I noted solutions here and hoped this can help you. :)</p>
 
 <!--more -->
 
 
-<p>So you can add .vimrc file in /YOUR_HOME_PATH/</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd
-</span><span class='line'>$ vim .vimrc</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Add below contents then save and exit.</p>
+<h3>Build Error 1.</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>syntax on
-</span><span class='line'>set t_Co=256
-</span><span class='line'>hi Comment ctermfg=blue</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Error:Build script error, unsupported Gradle DSL method found: 'getBootClasspath()'!
+</span><span class='line'>
+</span><span class='line'>Possible causes could be:
+</span><span class='line'>  - you are using Gradle version where the method is absent Fix Gradle settings
+</span><span class='line'>  - you didn't apply Gradle plugin which provides the method Apply Gradle plugin
+</span><span class='line'>  - or there is a mistake in a build script Goto source</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Enjoy it.</p>
+<p>Modified PagerSlidingTabStrip / build.gradle.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---classpath 'com.android.tools.build:gradle:0.6.+'
+</span><span class='line'>+++classpath 'com.android.tools.build:gradle:0.12.+'
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Modified PagerSlidingTabStrip / gradle / wrapper / gradle-wrapper.properties</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---distributionUrl=http\://services.gradle.org/distributions/gradle-1.8-all.zip
+</span><span class='line'>+++distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Build Error 2.</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Error:Could not find property 'allJava' on source set main.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Modified PagerSlidingTabStrip / library / build.gradle</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Reference : <a href="https://github.com/astuetz/PagerSlidingTabStrip">Github PagerSlidingTabStrip Project</a></p>
 </div>
 
 
@@ -150,12 +183,12 @@
   
 
 
-<time datetime="2014-07-04T14:05:55+08:00" pubdate data-updated="true">Jul 4<sup>th</sup>, 2014</time>
+<time datetime="2014-07-11T18:57:58+08:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/categories/linux/'>linux</a>, <a class='category' href='/categories/ubuntu/'>ubuntu</a>, <a class='category' href='/categories/vim/'>vim</a>
+    <a class='category' href='/categories/android/'>android</a>, <a class='category' href='/categories/android-studio/'>android studio</a>, <a class='category' href='/categories/gradle/'>gradle</a>
   
 </span>
 
@@ -164,7 +197,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shaching.github.io/2014/07/04/how-to-change-vim-default-comment-color/" data-via="chushaching" data-counturl="http://shaching.github.io/2014/07/04/how-to-change-vim-default-comment-color/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shaching.github.io/2014/07/11/android-studio-github-pagerslidingtabstrip-project-build-error/" data-via="chushaching" data-counturl="http://shaching.github.io/2014/07/11/android-studio-github-pagerslidingtabstrip-project-build-error/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -177,10 +210,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2014/06/25/how-to-install-octopress-blog-with-github/" title="Previous Post: How to Install Octopress Blog with Github?">&laquo; How to Install Octopress Blog with Github?</a>
+        <a class="basic-alignment left" href="/2014/07/08/vim-how-to-highlight-trailing-whitespace/" title="Previous Post: Vim - How to Highlight Trailing Whitespace?">&laquo; Vim - How to Highlight Trailing Whitespace?</a>
       
-      
-        <a class="basic-alignment right" href="/2014/07/08/vim-how-to-highlight-trailing-whitespace/" title="Next Post: Vim - How to Highlight Trailing Whitespace?">Vim - How to Highlight Trailing Whitespace? &raquo;</a>
       
     </p>
   </footer>
@@ -242,8 +273,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://shaching.github.io/2014/07/04/how-to-change-vim-default-comment-color/';
-        var disqus_url = 'http://shaching.github.io/2014/07/04/how-to-change-vim-default-comment-color/';
+        var disqus_identifier = 'http://shaching.github.io/2014/07/11/android-studio-github-pagerslidingtabstrip-project-build-error/';
+        var disqus_url = 'http://shaching.github.io/2014/07/11/android-studio-github-pagerslidingtabstrip-project-build-error/';
         var disqus_script = 'embed.js';
       
     (function () {
