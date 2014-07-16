@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Nas | Moon Light Box]]></title>
+  <link href="http://shaching.github.io/categories/nas/atom.xml" rel="self"/>
+  <link href="http://shaching.github.io/"/>
+  <updated>2014-07-17T00:21:11+08:00</updated>
+  <id>http://shaching.github.io/</id>
+  <author>
+    <name><![CDATA[shaching]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Git - How to Install Git Server in Synology DS214 NAS?]]></title>
+    <link href="http://shaching.github.io/2014/07/16/git-how-to-install-git-server-in-synology-ds214-nas/"/>
+    <updated>2014-07-16T17:55:56+08:00</updated>
+    <id>http://shaching.github.io/2014/07/16/git-how-to-install-git-server-in-synology-ds214-nas</id>
+    <content type="html"><![CDATA[<p>Synology DS214 NAS is provided Git server package.</p>
+
+<p>And I noted the setup below.</p>
+
+<!--more-->
+
+
+<p>Click Control Panel.
+<img src="/images/posts/2014-07-16-git/01.png"></p>
+
+<p>Create a new user account. (Example : git)
+<img src="/images/posts/2014-07-16-git/02.png">
+<img src="/images/posts/2014-07-16-git/03.png"></p>
+
+<p>Create a new shared folder. (Example : Repository)
+<img src="/images/posts/2014-07-16-git/04.png"></p>
+
+<p>Select user git and on click Read/Write permission.
+<img src="/images/posts/2014-07-16-git/05.png"></p>
+
+<p>Click Package Center and install Git Server package.
+<img src="/images/posts/2014-07-16-git/06.png"></p>
+
+<p>Launch Git Server and allow user git to use.
+<img src="/images/posts/2014-07-16-git/07.png"></p>
+
+<p>Enable SSH srvices then save and reboot.
+<img src="/images/posts/2014-07-16-git/08.png"></p>
+
+<p>You need login NAS with root via ssh.
+(Linux can use ssh command and Windows can use <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">putty</a>.)
+```
+$ ssh -l root 192.168.1.100 #192.168.1.100 is example. You need find your NAS local area IP.</p>
+
+<p>$ Enter root password</p>
+
+<p>$ cd /volume1/Repository/</p>
+
+<p>$ mkdir moonlightbox.git</p>
+
+<p>$ cd moonlightbox.git</p>
+
+<p>$ git &mdash;bare init</p>
+
+<p>$ cd ..</p>
+
+<p>$ chown -R git:users moonlightbox.git</p>
+
+<p>$ exit
+```</p>
+
+<p>Next, we will download moonlightbox project.
+```
+$ cd ~</p>
+
+<p>$ git clone ssh://git@192.168.1.100/volume1/Repository/moonlightbox.git/</p>
+
+<p>$ Enter git password # In this step, you can see the empty moonlightbox project.</p>
+
+<p>$ cd moonlightbox</p>
+
+<p>$ echo 1 > test.txt</p>
+
+<p>$ git add .</p>
+
+<p>$ git commit -m &ldquo;Init test&rdquo;</p>
+
+<p>$ git push origin master</p>
+
+<p>$ Enter git password # Finish check in &ldquo;Init test&rdquo; patch into git server.
+```</p>
+
+<p>HaHa. Done! :))))</p>
+]]></content>
+  </entry>
+  
+</feed>

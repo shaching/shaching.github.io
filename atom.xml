@@ -4,7 +4,7 @@
   <title><![CDATA[Moon Light Box]]></title>
   <link href="http://shaching.github.io/atom.xml" rel="self"/>
   <link href="http://shaching.github.io/"/>
-  <updated>2014-07-11T20:23:09+08:00</updated>
+  <updated>2014-07-17T00:21:11+08:00</updated>
   <id>http://shaching.github.io/</id>
   <author>
     <name><![CDATA[shaching]]></name>
@@ -12,6 +12,121 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git - How to Install Git Server in Synology DS214 NAS?]]></title>
+    <link href="http://shaching.github.io/2014/07/16/git-how-to-install-git-server-in-synology-ds214-nas/"/>
+    <updated>2014-07-16T17:55:56+08:00</updated>
+    <id>http://shaching.github.io/2014/07/16/git-how-to-install-git-server-in-synology-ds214-nas</id>
+    <content type="html"><![CDATA[<p>Synology DS214 NAS is provided Git server package.</p>
+
+<p>And I noted the setup below.</p>
+
+<!--more-->
+
+
+<p>Click Control Panel.
+<img src="http://shaching.github.io/images/posts/2014-07-16-git/01.png"></p>
+
+<p>Create a new user account. (Example : git)
+<img src="http://shaching.github.io/images/posts/2014-07-16-git/02.png">
+<img src="http://shaching.github.io/images/posts/2014-07-16-git/03.png"></p>
+
+<p>Create a new shared folder. (Example : Repository)
+<img src="http://shaching.github.io/images/posts/2014-07-16-git/04.png"></p>
+
+<p>Select user git and on click Read/Write permission.
+<img src="http://shaching.github.io/images/posts/2014-07-16-git/05.png"></p>
+
+<p>Click Package Center and install Git Server package.
+<img src="http://shaching.github.io/images/posts/2014-07-16-git/06.png"></p>
+
+<p>Launch Git Server and allow user git to use.
+<img src="http://shaching.github.io/images/posts/2014-07-16-git/07.png"></p>
+
+<p>Enable SSH srvices then save and reboot.
+<img src="http://shaching.github.io/images/posts/2014-07-16-git/08.png"></p>
+
+<p>You need login NAS with root via ssh.
+(Linux can use ssh command and Windows can use <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">putty</a>.)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ssh -l root 192.168.1.100 #192.168.1.100 is example. You need find your NAS local area IP.
+</span><span class='line'>
+</span><span class='line'>$ Enter root password
+</span><span class='line'>
+</span><span class='line'>$ cd /volume1/Repository/
+</span><span class='line'>
+</span><span class='line'>$ mkdir moonlightbox.git
+</span><span class='line'>
+</span><span class='line'>$ cd moonlightbox.git
+</span><span class='line'>
+</span><span class='line'>$ git --bare init
+</span><span class='line'>
+</span><span class='line'>$ cd ..
+</span><span class='line'>
+</span><span class='line'>$ chown -R git:users moonlightbox.git
+</span><span class='line'>
+</span><span class='line'>$ exit</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Next, we will download moonlightbox project.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd ~
+</span><span class='line'>
+</span><span class='line'>$ git clone ssh://git@192.168.1.100/volume1/Repository/moonlightbox.git/
+</span><span class='line'>
+</span><span class='line'>$ Enter git password # In this step, you can see the empty moonlightbox project.
+</span><span class='line'>
+</span><span class='line'>$ cd moonlightbox
+</span><span class='line'>
+</span><span class='line'>$ echo 1 &gt; test.txt
+</span><span class='line'>
+</span><span class='line'>$ git add .
+</span><span class='line'>
+</span><span class='line'>$ git commit -m "Init test"
+</span><span class='line'>
+</span><span class='line'>$ git push origin master
+</span><span class='line'>
+</span><span class='line'>$ Enter git password # Finish check in "Init test" patch into git server.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>HaHa. Done! :))))</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Android Studio - Github PagerSlidingTabStrip Project Build Error]]></title>
