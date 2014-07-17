@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Interview | Moon Light Box]]></title>
+  <link href="http://shaching.github.io/categories/interview/atom.xml" rel="self"/>
+  <link href="http://shaching.github.io/"/>
+  <updated>2014-07-17T19:42:26+08:00</updated>
+  <id>http://shaching.github.io/</id>
+  <author>
+    <name><![CDATA[shaching]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[C - What Is Static Function?]]></title>
+    <link href="http://shaching.github.io/2014/07/17/c-what-is-static-function/"/>
+    <updated>2014-07-17T19:28:18+08:00</updated>
+    <id>http://shaching.github.io/2014/07/17/c-what-is-static-function</id>
+    <content type="html"><![CDATA[<p>A static function is a function whose scope is limited to the current source file.</p>
+
+<p>靜態函式只能被所屬的檔案使用，其它檔案無法呼叫。</p>
+
+<p>舉例：檔案 a.c 有 static functionA, 但檔案 b.c 無法呼叫 functionA 使用。</p>
+
+<p>要注意的是 C++ 和 Java 的靜態函式功用和靜態變數相同。</p>
+]]></content>
+  </entry>
+  
+</feed>
