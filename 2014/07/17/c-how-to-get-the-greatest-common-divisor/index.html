@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>C - How to Reverse String? - Moon Light Box</title>
+  <title>C - How to Get the Greatest Common Divisor - Moon Light Box</title>
   <meta name="author" content="shaching">
 
   
-  <meta name="description" content="C - How to Reverse String" />
+  <meta name="description" content="C - How to Get the Greatest Common Divisor" />
   
-  <meta name="keywords" content="C, String, Reverse, Interview, Pointer" />
+  <meta name="keywords" content="C, GCD" />
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://shaching.github.io/2014/07/17/c-how-to-reverse-string">
+  <link rel="canonical" href="http://shaching.github.io/2014/07/17/c-how-to-get-the-greatest-common-divisor">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Moon Light Box" type="application/atom+xml">
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">C - How to Reverse String?</h1>
+      <h1 class="entry-title">C - How to Get the Greatest Common Divisor</h1>
     
     
       <p class="meta">
@@ -97,7 +97,7 @@
   
 
 
-<time datetime="2014-07-17T20:31:22+08:00" pubdate data-updated="true">Jul 17<sup>th</sup>, 2014</time>
+<time datetime="2014-07-17T20:50:47+08:00" pubdate data-updated="true">Jul 17<sup>th</sup>, 2014</time>
         
       </p>
     
@@ -125,71 +125,25 @@
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
 <span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;stdio.h&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;stdlib.h&gt;</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include&lt;stdio.h&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;stdlib.h&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="kt">void</span> <span class="nf">reverse</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">s1</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s2</span><span class="p">)</span>
+</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="kt">char</span> <span class="n">temp</span><span class="p">,</span> <span class="o">*</span><span class="n">q1</span><span class="p">,</span> <span class="o">*</span><span class="n">q2</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">temp</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">strcpy</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">s1</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">q1</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">q2</span> <span class="o">=</span> <span class="n">buf</span> <span class="o">+</span> <span class="n">strlen</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">while</span><span class="p">(</span> <span class="n">q1</span> <span class="o">&lt;</span> <span class="n">q2</span> <span class="p">)</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
 </span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">q1</span><span class="p">;</span>
-</span><span class='line'>        <span class="o">*</span><span class="n">q1</span> <span class="o">=</span> <span class="o">*</span><span class="n">q2</span><span class="p">;</span>
-</span><span class='line'>        <span class="o">*</span><span class="n">q2</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">q1</span><span class="o">++</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">q2</span><span class="o">--</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">while</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="n">b</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">%</span> <span class="n">b</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
 </span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="n">strcpy</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">80</span><span class="p">],</span> <span class="n">buf2</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Please input a string&quot;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">gets</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">reverse</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">buf2</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">puts</span><span class="p">(</span><span class="s">&quot;The result of reverse string.&quot;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">puts</span><span class="p">(</span><span class="n">buf2</span><span class="p">);</span>
-</span><span class='line'>
 </span><span class='line'>    <span class="n">system</span><span class="p">(</span><span class="s">&quot;PAUSE&quot;</span><span class="p">);</span>
-</span><span class='line'>
 </span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -216,12 +170,12 @@
   
 
 
-<time datetime="2014-07-17T20:31:22+08:00" pubdate data-updated="true">Jul 17<sup>th</sup>, 2014</time>
+<time datetime="2014-07-17T20:50:47+08:00" pubdate data-updated="true">Jul 17<sup>th</sup>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/categories/c/'>c</a>, <a class='category' href='/categories/interview/'>interview</a>, <a class='category' href='/categories/pointer/'>pointer</a>, <a class='category' href='/categories/string/'>string</a>
+    <a class='category' href='/categories/c/'>c</a>, <a class='category' href='/categories/gcd/'>gcd</a>
   
 </span>
 
@@ -230,7 +184,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shaching.github.io/2014/07/17/c-how-to-reverse-string/" data-via="chushaching" data-counturl="http://shaching.github.io/2014/07/17/c-how-to-reverse-string/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shaching.github.io/2014/07/17/c-how-to-get-the-greatest-common-divisor/" data-via="chushaching" data-counturl="http://shaching.github.io/2014/07/17/c-how-to-get-the-greatest-common-divisor/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -243,10 +197,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2014/07/17/c-how-to-delete-space-of-string/" title="Previous Post: C - How to Delete Space of String?">&laquo; C - How to Delete Space of String?</a>
+        <a class="basic-alignment left" href="/2014/07/17/c-how-to-reverse-string/" title="Previous Post: C - How to Reverse String?">&laquo; C - How to Reverse String?</a>
       
-      
-        <a class="basic-alignment right" href="/2014/07/17/c-how-to-get-the-greatest-common-divisor/" title="Next Post: C - How to Get the Greatest Common Divisor">C - How to Get the Greatest Common Divisor &raquo;</a>
       
     </p>
   </footer>
@@ -312,8 +264,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://shaching.github.io/2014/07/17/c-how-to-reverse-string/';
-        var disqus_url = 'http://shaching.github.io/2014/07/17/c-how-to-reverse-string/';
+        var disqus_identifier = 'http://shaching.github.io/2014/07/17/c-how-to-get-the-greatest-common-divisor/';
+        var disqus_url = 'http://shaching.github.io/2014/07/17/c-how-to-get-the-greatest-common-divisor/';
         var disqus_script = 'embed.js';
       
     (function () {
