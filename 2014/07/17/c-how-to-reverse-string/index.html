@@ -122,74 +122,22 @@
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
 </pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;stdio.h&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;stdlib.h&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;string.h&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="kt">void</span> <span class="nf">reverse</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">s1</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s2</span><span class="p">)</span>
+</span><span class='line'><span class="kt">void</span> <span class="nf">reverse</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="kt">char</span> <span class="n">temp</span><span class="p">,</span> <span class="o">*</span><span class="n">q1</span><span class="p">,</span> <span class="o">*</span><span class="n">q2</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">strcpy</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">s1</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">q1</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">q2</span> <span class="o">=</span> <span class="n">buf</span> <span class="o">+</span> <span class="n">strlen</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">while</span><span class="p">(</span> <span class="n">q1</span> <span class="o">&lt;</span> <span class="n">q2</span> <span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">q1</span><span class="p">;</span>
-</span><span class='line'>        <span class="o">*</span><span class="n">q1</span> <span class="o">=</span> <span class="o">*</span><span class="n">q2</span><span class="p">;</span>
-</span><span class='line'>        <span class="o">*</span><span class="n">q2</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">q1</span><span class="o">++</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">q2</span><span class="o">--</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="n">strcpy</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">j</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">,</span> <span class="o">--</span><span class="n">j</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">c</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">str</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">80</span><span class="p">],</span> <span class="n">buf2</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Please input a string&quot;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">gets</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">reverse</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">buf2</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">puts</span><span class="p">(</span><span class="s">&quot;The result of reverse string.&quot;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">puts</span><span class="p">(</span><span class="n">buf2</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">system</span><span class="p">(</span><span class="s">&quot;PAUSE&quot;</span><span class="p">);</span>
-</span><span class='line'>
+</span><span class='line'>    <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;ABCDE&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">reverse</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">puts</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
 </span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
