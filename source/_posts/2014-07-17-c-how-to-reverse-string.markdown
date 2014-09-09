@@ -10,47 +10,21 @@ description: C - How to Reverse String
 
 {% codeblock lang:c %}
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
-void reverse(char *s1, char *s2)
+void reverse(char* str)
 {
-    char temp, *q1, *q2;
-
-    char buf[80];
-
-    strcpy(buf, s1);
-
-    q1 = buf;
-
-    q2 = buf + strlen(buf)-1;
-
-    while( q1 < q2 )
-    {
-        temp = *q1;
-        *q1 = *q2;
-        *q2 = temp;
-        q1++;
-        q2--;
-    }
-    strcpy(s2, buf);
+    int i, j;
+    char c;
+    for(i = 0, j = strlen(str)-1; i<j; ++i, --j)
+        c = str[i], str[i] = str[j], str[j] = c;
 }
 
-int main(int argc, char *argv[])
+int main()
 {
-    char buf[80], buf2[80];
-
-    puts("Please input a string");
-
-    gets(buf);
-
-    reverse(buf, buf2);
-
-    puts("The result of reverse string.");
-
-    puts(buf2);
-
-    system("PAUSE");
-
+    char str[] = "ABCDE";
+    reverse(str);
+    puts(str);
     return 0;
 }
 {% endcodeblock %}
